@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="number" name="fn" placeholder="First Number" required step="any">
+        <input type="number" name="sn" placeholder="Second Number" required step="any">
+        <br>
+        <label>
+            <input type="radio" name="operation" value="add" required> ADD (+)
+        </label>
+        <label>
+            <input type="radio" name="operation" value="subtract" required> SUB (-)
+        </label>
+        <label>
+            <input type="radio" name="operation" value="multiply" required> MULTIPLY (*)
+        </label>
+        <label>
+            <input type="radio" name="operation" value="divide" required> DIVIDE (/)
+        </label>
+        <br>
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if result is not None %}
+        <h2>Result: {{ result }}</h2>
+    {% endif %}
+</body>
+</html>
